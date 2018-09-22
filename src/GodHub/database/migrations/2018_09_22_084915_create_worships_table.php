@@ -19,6 +19,7 @@ class CreateWorshipsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->integer('god_id')->unsigned();
             $table->foreign('god_id')->references('id')->on('gods');
+            $table->boolean('status');
             $table->timestamps();
         });
     }
