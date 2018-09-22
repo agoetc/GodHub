@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/god/detail', function () {
+    return view('god.detail');
+});
