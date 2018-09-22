@@ -4,6 +4,8 @@
 
 <h4>累計崇拝数　{{ $worshipSum }}</h4>
 
+<button class="btn btn-outline-primary" onclick="location.href='{{ action('ScheduleController@create', $god['id']) }}'">スケジュール管理</button>
+
 <form action="/god/detail/{{ $god['id'] }}/worship" method="POST">
     {{ csrf_field() }}
     <button type="submit" class="btn btn-outline-primary">崇拝</button>

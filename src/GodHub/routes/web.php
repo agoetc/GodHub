@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Route::get('/god/detail/{id}/', 'GodController@detail');
 Route::post('god/detail/{id}/worship', 'GodController@worship');
+Route::get('/god/detail/{id}/schedule/', 'ScheduleController@create');
+Route::post('/god/detail/{id}/schedule/post', 'ScheduleController@post');
 
 Route::get('/god/create', function () {
     return view('god.create');
