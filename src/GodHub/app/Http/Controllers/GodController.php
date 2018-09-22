@@ -15,7 +15,7 @@ class GodController extends Controller
     {
         $god = God::find($id);
         $worshipSum = Worship::where('god_id', $id)->where('status',true)->count();
-        $worship = Worship::where('user_id', Auth::id())->first();
+        $worship = Worship::where('user_id', Auth::id())->where('god_id', $id)->first();
 
         $status = null;
         if ($worship) {
@@ -40,29 +40,18 @@ class GodController extends Controller
         return redirect(action('GodController@detail', $god->id));
     }
 
-    public function worshipUpdate(int $godId){
-        $check = Worship::where('user_id',Auth::id())->first();
-        if($check->status){
-            $check->status = false;
-            $check->save();
-        }else{
-            $check->status = true;
-            $check->save();
-        }
-        return redirect(action('GodController@detail', $godId));
-
-    }
-
     public function worship(Request $req, int $godId) {
-        $check = Worship::where('user_id', Auth::id())->first();
-        if($check) {
-            return redirect(action('GodController@worshipUpdate',$godId));
-        }
-            $worship = new Worship();
-            $worship->user_id = Auth::id();
-            $worship->god_id = $godId;
-            $worship->status = true;
-            $worship->save();
+        $worship = Worship::firstOrNew([
+            'user_id' => Auth::id(),
+            'god_id' => $godId
+        ], [
+            'status' => false
+        ]);
+
+        $worship->status = !$worship->status;
+        $worship->user_id = Auth::id();
+        $worship->god_id = $godId;
+        $worship->save();
 
         return redirect(action('GodController@detail', $godId));
     }

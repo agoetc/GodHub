@@ -10,10 +10,6 @@
 
 <form action="{{ action('GodController@worship', $god['id']) }}" method="POST">
     {{ csrf_field() }}
-    @if(!is_null($status))
-        <input type="hidden" name="_method" value="PUT">
-    @endif
-
     @if($status)
         <button type="submit" class="btn btn-primary">崇拝中</button>
     @else
