@@ -1,1 +1,5 @@
-# php-docker-sample
+# GodHub
+
+```
+docker-compose build
+docker-compose up -d
