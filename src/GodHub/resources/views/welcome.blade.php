@@ -45,7 +45,7 @@
             }
 
             .title {
-                font-size: 84px;
+                font-size: 120px;
             }
 
             .links > a {
@@ -69,6 +69,7 @@
                 <div class="top-right links">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
+
                     @else
                         <a href="{{ route('login') }}">Login</a>
                         <a href="{{ route('register') }}">Register</a>
@@ -78,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    GotHub
+                    GodHub
                 </div>
 
             </div>

@@ -11,13 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+Route::get('/', 'HomeController@index')->name('home');
+
 
 Route::get('/god/detail/{id}/', 'GodController@detail');
 Route::post('god/detail/{id}/worship', 'GodController@worship');
 Route::get('/god/detail/{id}/edit', 'GodController@edit');
+Route::get('/god/detail/{id}/schedule/', 'ScheduleController@create');
+Route::post('/god/detail/{id}/schedule/post', 'ScheduleController@post');
+Route::get('/god/detail/{id}/schedule/add', 'ScheduleController@add');
 
 Route::get('/god/create', function () {
     return view('god.create');
