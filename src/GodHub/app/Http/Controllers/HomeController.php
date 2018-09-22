@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\God;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $gods = God::all();
+        return view('home', ['gods' => $gods]);
     }
 }
