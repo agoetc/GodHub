@@ -8,8 +8,15 @@
 
 <form action="/god/detail/{{ $god['id'] }}/worship" method="POST">
     {{ csrf_field() }}
-    <button type="submit" class="btn btn-outline-primary">崇拝</button>
+    @if($check)
+        <input type="hidden" name="_method" value="PUT">
+    @endif
 
+        @if($check->status)
+        <button type="submit" class="btn btn-primary">崇拝中</button>
+        @else
+        <button type="submit" class="btn btn-outline-primary">崇拝</button>
+        @endif
 </form>
 
 <h2 class="display-3">{{ $god['name'] }}</h2>
