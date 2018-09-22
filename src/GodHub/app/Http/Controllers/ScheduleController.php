@@ -18,36 +18,43 @@ class ScheduleController extends Controller
         $mon = Schedule
             ::where('god_id', $godId)
             ->where('week', "月")
+            ->orderby('time')
             ->get();
 
         $tues = Schedule
             ::where('god_id', $godId)
             ->where('week', "火")
+            ->orderby('time')
             ->get();
 
         $wednes = Schedule
             ::where('god_id', $godId)
             ->where('week', "水")
+            ->orderby('time')
             ->get();
 
         $thurs = Schedule
             ::where('god_id', $godId)
             ->where('week', "木")
+            ->orderby('time')
             ->get();
 
         $fri = Schedule
             ::where('god_id', $godId)
             ->where('week', "金")
+            ->orderby('time')
             ->get();
 
         $satur = Schedule
             ::where('god_id', $godId)
             ->where('week', "土")
+            ->orderby('time')
             ->get();
 
         $sun = Schedule
             ::where('god_id', $godId)
             ->where('week', "日")
+            ->orderby('time')
             ->get();
 
         return view('god.schedule.index', [
