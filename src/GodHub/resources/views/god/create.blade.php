@@ -1,10 +1,6 @@
-<!doctype html>
-<html>
-<head>
-    @include('template.head')
-</head>
-<body>
+@extends('layouts.app')
 
+@section('content')
 <h1 class="display-3">神作成。</h1>
 
 
@@ -22,4 +18,4 @@
     <button type="submit" class="btn btn-outline-primary">送信</button>
 
 </form>
-
+@endsection
