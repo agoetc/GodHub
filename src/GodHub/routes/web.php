@@ -20,3 +20,6 @@ Route::get('/god/{id}', 'GodController@get');
 Route::get('/god/create', function () {
     return view('god.create');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
