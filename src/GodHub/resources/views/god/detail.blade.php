@@ -5,12 +5,11 @@
 </head>
 <body>
 
-<h1 class="display-3">タイトル</h1>
+<h1 class="display-3">{{ $god['name'] }}</h1>
 
 <blockquote class="blockquote">
     <p class="mb-0">
-        ここが本文<br>
-        <br>
+        {!! nl2br($god['detail']) !!}
     </p>
 </blockquote>
 
