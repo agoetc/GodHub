@@ -34,5 +34,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/god/update/{id}', 'GodController@update');
+Route::get('/god/myPage/myGod', function () {
+    return view('myPage.myGod');
+});
 
+Route::get('/god/myPage/worship', function () {
+    return view('myPage.worship');
+});
+Route::get('/god/update/{id}', 'GodController@update');
