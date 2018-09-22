@@ -1,10 +1,6 @@
-<!doctype html>
-<html>
-<head>
-    @include('template.head')
-</head>
-<body>
+@extends('layouts.app')
 
+@section('content')
 <h1 class="display-3">{{ $god['name'] }}</h1>
 
 <blockquote class="blockquote">
@@ -12,6 +8,4 @@
         {!! nl2br($god['detail']) !!}
     </p>
 </blockquote>
-
-
-</body>
+@endsection

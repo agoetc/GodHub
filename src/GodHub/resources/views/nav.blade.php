@@ -12,8 +12,6 @@
             <li class="nav-item active">
                 <a class="nav-link" href="/god/create">Create <span class="sr-only">(current)</span></a>
             </li>
-
-
         </ul>
 
         <form class="navbar-nav">
