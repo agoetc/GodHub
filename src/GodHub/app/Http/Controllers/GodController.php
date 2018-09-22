@@ -21,8 +21,7 @@ class GodController extends Controller
         $god->name = $req->name;
         $god->detail = $req->detail;
         $god->save();
-        redirect(action('GodController@detail', $god->id));
-
+        return redirect(action('GodController@detail', $god->id));
     }
 
 }
