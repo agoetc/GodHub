@@ -15,11 +15,17 @@ class GodController extends Controller
     {
         $god = God::find($id);
         $worshipSum = Worship::where('god_id', $id)->where('status',true)->count();
-        $check = Worship::where('user_id', Auth::id())->first();
+        $worship = Worship::where('user_id', Auth::id())->first();
+
+        $status = null;
+        if ($worship) {
+            $status = $worship->status;
+        }
+
         return view('god.detail', [
             'god' => $god,
             'worshipSum' => $worshipSum,
-            'check' => $check
+            'status' => $status
         ]);
     }
 

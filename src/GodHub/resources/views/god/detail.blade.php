@@ -8,17 +8,18 @@
 
 <button class="btn btn-outline-primary" onclick="location.href='{{ action('ScheduleController@create', $god['id']) }}'">スケジュール管理</button>
 
-<form action="/god/detail/{{ $god['id'] }}/worship" method="POST">
+<form action="{{ action('GodController@worship', $god['id']) }}" method="POST">
     {{ csrf_field() }}
-    @if($check)
+    @if(!is_null($status))
         <input type="hidden" name="_method" value="PUT">
     @endif
 
-        @if($check->status)
+    @if($status)
         <button type="submit" class="btn btn-primary">崇拝中</button>
-        @else
+    @else
         <button type="submit" class="btn btn-outline-primary">崇拝</button>
-        @endif
+    @endif
+
 </form>
 
 <h2 class="display-3">{{ $god['name'] }}</h2>
