@@ -32,9 +32,11 @@ class GodController extends Controller
     public function create(Request $req)
     {
         $god = new God();
+        $god->user_id = Auth::id();
         $god->name = $req->name;
         $god->detail = $req->detail;
         $god->save();
+
         return redirect(action('GodController@detail', $god->id));
     }
 
