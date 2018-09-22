@@ -18,15 +18,13 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/god/detail/{id}/', 'GodController@detail');
 Route::post('god/detail/{id}/worship', 'GodController@worship');
+Route::get('/god/detail/{id}/edit', 'GodController@edit');
 Route::get('/god/detail/{id}/schedule/', 'ScheduleController@create');
 Route::post('/god/detail/{id}/schedule/post', 'ScheduleController@post');
+Route::get('/god/detail/{id}/schedule/add', 'ScheduleController@add');
 
 Route::get('/god/create', function () {
     return view('god.create');
-});
-
-Route::get('/god/schedule/add', function () {
-    return view('god.schedule.add');
 });
 
 
@@ -43,3 +41,4 @@ Route::get('/god/myPage/myGod', function () {
 Route::get('/god/myPage/worship', function () {
     return view('myPage.worship');
 });
+Route::get('/god/update/{id}', 'GodController@update');

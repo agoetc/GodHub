@@ -41,4 +41,18 @@ class GodController extends Controller
         return redirect(action('GodController@detail', $godId));
     }
 
+    public function edit(Request $req, int $godId){
+        $god = God::Find($godId);
+        return view( 'god.edit', ['god'=> $god]);
+
+    }
+
+    public function update(Request $req, int $godId){
+        $god = God::Find($godId);
+        $god->name = $req->name;
+        $god->detail = $req->detail;
+        $god->save();
+        return redirect(action('GodController@detail', $godId));
+    }
+
 }

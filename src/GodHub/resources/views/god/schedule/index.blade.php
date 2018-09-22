@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <h3>{{ $god['name'] }}様崇拝スケジュール</h3>
+    <h3>
+        {{ $god['name'] }}様崇拝スケジュール
+        <button class="btn btn-outline-primary" onclick="location.href='{{ action('ScheduleController@add', $god['id']) }}'">スケジュール追加</button>
+
+    </h3>
     <div class="card">
         <div class="card-header">
             月
