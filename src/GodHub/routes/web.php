@@ -16,10 +16,12 @@ Route::get('/', function () {
 });
 
 Route::get('/god/detail/{id}/', 'GodController@detail');
+Route::post('god/detail/{id}/worship', 'GodController@worship');
 
 Route::get('/god/create', function () {
     return view('god.create');
 });
+
 
 Route::post('/god/create/post', 'GodController@create');
 
