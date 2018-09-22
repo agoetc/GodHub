@@ -13,12 +13,20 @@
                 <a class="nav-link" href="/god/create">Create <span class="sr-only">(current)</span></a>
             </li>
 
+
         </ul>
 
         <form class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="#">NAME <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#">ログイン <span class="sr-only">(current)</span></a>
             <li class="nav-item active">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">/ <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">新規登録 <span class="sr-only">(current)</span></a>
+            </li>
+            </li>
         </form>
     </div>
 
