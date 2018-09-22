@@ -15,11 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/god/{id}', 'GodController@get');
+Route::get('/god/detail/{id}/', 'GodController@detail');
 
 Route::get('/god/create', function () {
     return view('god.create');
 });
+
+Route::post('/god/create/post', 'GodController@create');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

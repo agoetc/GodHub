@@ -7,25 +7,19 @@
 
 <h1 class="display-3">神作成。</h1>
 
-<p class="mb-0">
-    神の名前
-</p>
 
-<div class="form-group">
+<form action="/god/create/post" method="POST">
+{{ csrf_field() }}
+    <div class="form-group">
+        <label>神の名前</label>
+        <input name="name" class="form-control" placeholder="例：アッラー"  id="comment"></input>
+    </div>
+    <div class="form-group">
+        <label>詳細</label>
+        <textarea name="detail" class="form-control" rows="20"placeholder="例：アッラー"  id="comment"></textarea>
+    </div>
 
-    <textarea class="form-control" rows="1"placeholder="例：アッラー"  id="comment"></textarea>
-</div>
+    <button type="submit" class="btn btn-outline-primary">送信</button>
 
+</form>
 
-<p class="mb-0">
-    神の詳細
-</p>
-
-<div class="form-group">
-
-    <textarea class="form-control" rows="25"placeholder="例：アッラー"  id="comment"></textarea>
-</div>
-
-<button type="button" class="btn btn-outline-primary">送信</button>
-
-</body>
