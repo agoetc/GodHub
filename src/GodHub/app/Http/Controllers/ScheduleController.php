@@ -9,6 +9,7 @@ use App\Model\Schedule;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Response;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class ScheduleController extends Controller
 {
@@ -97,25 +98,32 @@ class ScheduleController extends Controller
         $week = ["日","月","火","水","木","金","土"];
         $today_key = date("w");
         $csv_array = array(
-            array("Subject", "Start Date", "Start Time" , "End Date"),
+            array("Subject", "Start Date", "Start Time"),
         );
         foreach($schedule as $plan){
             $dt = Carbon::now();
             $week_key = array_keys($week,$plan->week);
             $days_ago = intval($today_key) <= $week_key[0] ?  $week_key[0] - intval($today_key): 7 - intval($today_key) ;
-            $plans = array($plan->do,$dt->addDay($days_ago)->format('Y/m/d'),$plan->time,$plan->time);
+            $plans = array($plan->do,$dt->addDay($days_ago)->format('Y/m/d'),$plan->time);
             array_push($csv_array,$plans);
         }
 
-        $stream = fopen('php://output', 'w');
-        foreach ($csv_array as $c) {
-            fputcsv($stream, $c);
-        }
-        $headers = array(
-            'Content-Type' => 'text/csv',
-            'Content-Disposition' => 'attachment; filename="users.csv"',
+        return  new StreamedResponse(
+            function () use ($csv_array) {
+
+                $stream = fopen('php://output', 'w');
+                foreach ($csv_array as $c) {
+                    fputcsv($stream, $c);
+                }
+                fclose($stream);
+            },
+            200,
+            [
+                'Content-Type' => 'text/csv',
+                'Content-Disposition' => 'attachment; filename="todo.csv"',
+            ]
         );
-        return Response::make('', 200, $headers);
+
     }
 
 }
