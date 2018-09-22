@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1 class="display-3">崇拝ルーティーン</h1>
+    <h3>崇拝スケジュール追加</h3>
 
 
     <form action="{{ action('ScheduleController@post', $god['id']) }}" method="POST">
