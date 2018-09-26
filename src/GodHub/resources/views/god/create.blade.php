@@ -12,7 +12,7 @@
     </div>
     <div class="form-group">
         <label>詳細</label>
-        <textarea name="detail" class="form-control" rows="20"placeholder="例：アッラー"  id="comment"></textarea>
+        <textarea name="detail" class="form-control" rows="10"placeholder="例：アッラー"  id="comment"></textarea>
     </div>
 
     <button type="submit" class="btn btn-outline-primary">送信</button>
